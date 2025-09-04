@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
-#include <filesystem>  // Requires C++17
+#include <filesystem>  
 
 namespace fs = std::filesystem;
 using namespace std;
 
-// Function declarations
+
 void mainMenu();
 void listFiles();
 void listAllFiles();
@@ -14,13 +14,13 @@ void listFilesByPattern();
 void createDirectory();
 void changeDirectory();
 
-// Entry point
+
 int main() {
     mainMenu();
     return 0;
 }
 
-// Main menu loop
+
 void mainMenu() {
     int choice;
 
@@ -32,7 +32,7 @@ void mainMenu() {
         cout << "[4] Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
-        cin.ignore(); // Clear newline from input
+        cin.ignore(); 
 
         switch (choice) {
             case 1: listFiles(); break;
@@ -44,7 +44,7 @@ void mainMenu() {
     } while (choice != 4);
 }
 
-// Submenu for listing files
+
 void listFiles() {
     int option;
     cout << "\n--- List Files ---\n";
@@ -63,7 +63,7 @@ void listFiles() {
     }
 }
 
-// List all files in the current directory
+
 void listAllFiles() {
     cout << "\nFiles in current directory:\n";
     for (const auto& entry : fs::directory_iterator(fs::current_path())) {
@@ -72,7 +72,7 @@ void listAllFiles() {
     }
 }
 
-// List files with specific extension
+
 void listFilesByExtension() {
     string ext;
     cout << "Enter file extension (e.g., .txt): ";
@@ -85,7 +85,7 @@ void listFilesByExtension() {
     }
 }
 
-// List files that match a pattern
+
 void listFilesByPattern() {
     string pattern;
     cout << "Enter starting pattern (e.g., moha): ";
@@ -99,7 +99,7 @@ void listFilesByPattern() {
     }
 }
 
-// Create a new directory if it doesn't exist
+
 void createDirectory() {
     string dirName;
     cout << "Enter directory name to create: ";
@@ -115,7 +115,7 @@ void createDirectory() {
     }
 }
 
-// Change working directory
+
 void changeDirectory() {
     string newPath;
     cout << "Enter new directory path: ";
